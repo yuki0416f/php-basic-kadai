@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -12,9 +13,20 @@
         // 配列を定義
         $nums = [4, 10, 15, 18, 23];
 
+        // 独自のソート関数
+        function sort_2way(&$array, $order = true) {
+            if ($order) {
+                // 昇順
+                sort($array);
+            } else {
+                // 降順
+                rsort($array);
+            }
+        }
+
         // 昇順にソート
-        $asc_nums = $nums; // 元の配列を保持するためコピー
-        sort($asc_nums); // 昇順にソート
+        $asc_nums = $nums;
+        sort_2way($asc_nums);
 
         // 昇順の結果を表示
         echo "昇順にソートします:<br>";
@@ -22,11 +34,11 @@
             echo $num . "<br>";
         }
 
-        echo "<br>"; // 改行
+        echo "<br>";
 
         // 降順にソート
-        $desc_nums = $nums; // 元の配列を保持するためコピー
-        rsort($desc_nums); // 降順にソート
+        $desc_nums = $nums;
+        sort_2way($desc_nums, false);
 
         // 降順の結果を表示
         echo "降順にソートします:<br>";
